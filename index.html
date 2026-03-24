@@ -138,11 +138,12 @@
     /* ── Notify form ── */
     .notify-form {
       display: flex;
-      gap: 8px;
+      flex-direction: column;
+      gap: 10px;
       margin-bottom: 12px;
     }
-    .notify-form input[type="email"] {
-      flex: 1;
+    .notify-form input {
+      width: 100%;
       padding: 12px 16px;
       border: 1.5px solid #c8e6c9;
       border-radius: 50px;
@@ -152,8 +153,9 @@
       color: var(--text-dark);
       outline: none;
       transition: border-color 0.2s;
+      box-sizing: border-box;
     }
-    .notify-form input[type="email"]:focus { border-color: var(--green-dark); }
+    .notify-form input:focus { border-color: var(--green-dark); }
     .notify-form button {
       padding: 12px 24px;
       background: var(--green-dark);
@@ -193,6 +195,22 @@
       border-top: 1px solid rgba(46,125,50,0.15);
       margin-bottom: 28px;
     }
+
+    /* ── Contact details ── */
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .contact-details a {
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .contact-details a i { margin-right: 8px; color: var(--green-dark); }
+    .contact-details a:hover { color: var(--green-dark); }
 
     /* ── Social links ── */
     .social-label {
@@ -285,6 +303,14 @@
       </div>
 
       <p class="form-note">No spam, ever. Just one launch email.</p>
+
+      <hr class="divider" />
+
+      <p class="social-label">Get in touch</p>
+      <div class="contact-details">
+        <a href="mailto:karkysdesignstudio@gmail.com"><i class="fas fa-envelope"></i> karkysdesignstudio@gmail.com</a>
+        <a href="tel:+918754072093"><i class="fas fa-phone"></i> +91-8754072093</a>
+      </div>
 
       <hr class="divider" />
 
