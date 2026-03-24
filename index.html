@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karky Designs — Coming Soon</title>
+  <meta name="description" content="Eco-friendly educational games and comics for a sustainable future. Coming soon from Karky Designs Private Limited." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-light: #B7DCA9;
+      --green-mid:   #6abf69;
+      --green-dark:  #2e7d32;
+      --text-dark:   #1a2e1a;
+      --text-mid:    #4a6a4a;
+      --white:       #ffffff;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: var(--green-light);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── Background blobs ── */
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      opacity: 0.35;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+    body::before {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, #81c784, transparent 70%);
+      top: -160px; left: -160px;
+    }
+    body::after {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, #a5d6a7, transparent 70%);
+      bottom: -120px; right: -100px;
+      animation-delay: 3s;
+    }
+    @keyframes float {
+      from { transform: translateY(0) scale(1); }
+      to   { transform: translateY(30px) scale(1.05); }
+    }
+
+    /* ── Layout ── */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    /* ── Logo ── */
+    .logo-wrap {
+      margin-bottom: 32px;
+    }
+    .logo-wrap img {
+      height: 90px;
+      object-fit: contain;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green-dark);
+      letter-spacing: 0.02em;
+    }
+    .logo-sub {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: var(--text-mid);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── Card ── */
+    .card {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 560px;
+      width: 100%;
+      box-shadow: 0 8px 40px rgba(46,125,50,0.12);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--green-dark); }
+
+    .tagline {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+    }
+
+    /* ── Notify form ── */
+    .notify-form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .notify-form input[type="email"] {
+      flex: 1;
+      padding: 12px 16px;
+      border: 1.5px solid #c8e6c9;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: var(--white);
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notify-form input[type="email"]:focus { border-color: var(--green-dark); }
+    .notify-form button {
+      padding: 12px 24px;
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .notify-form button:hover { background: #1b5e20; }
+    .notify-form button:active { transform: scale(0.97); }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+    }
+
+    .success-msg {
+      display: none;
+      color: var(--green-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+      padding: 12px;
+      background: #e8f5e9;
+      border-radius: 12px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(46,125,50,0.15);
+      margin-bottom: 28px;
+    }
+
+    /* ── Social links ── */
+    .social-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1.5px solid #c8e6c9;
+      color: var(--green-dark);
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .social-links a:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* ── Footer note ── */
+    .footer-note {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--text-mid);
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      .card { padding: 36px 24px; }
+      .notify-form { flex-direction: column; }
+      .notify-form button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <!-- If you have a logo image, replace the text below with:
+           <img src="logo.png" alt="Karky Designs"> -->
+      <div class="logo-text">Karky Designs</div>
+      <div class="logo-sub">Private Limited</div>
+    </div>
+
+    <!-- Main card -->
+    <div class="card">
+      <div class="badge">🌱 Coming Soon</div>
+
+      <h1>Games that teach<br><span>kids to save the planet</span></h1>
+
+      <p class="tagline">
+        We're crafting eco-friendly, NEP-aligned board games and comics
+        that make sustainability fun for children, schools, and families.
+        Something exciting is on its way — be the first to know!
+      </p>
+
+      <!-- Notify me form — submits silently to Google Form -->
+      <!-- Replace GOOGLE_FORM_ID and ENTRY_ID below. See instructions in HTML comments. -->
+      <form
+        class="notify-form"
+        action="https://docs.google.com/forms/d/e/GOOGLE_FORM_ID/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        id="notifyForm"
+      >
+        <!-- The name must match your Google Form field entry ID, e.g. entry.123456789 -->
+        <input type="email" name="entry.ENTRY_ID" placeholder="Enter your email address" required />
+        <button type="submit">Notify Me</button>
+      </form>
+
+      <!-- Hidden iframe absorbs the Google redirect so user stays on this page -->
+      <iframe name="hidden_iframe" style="display:none"></iframe>
+
+      <div class="success-msg" id="successMsg">
+        🎉 You're on the list! We'll reach out when we launch.
+      </div>
+
+      <p class="form-note">No spam, ever. Just one launch email.</p>
+
+      <hr class="divider" />
+
+      <p class="social-label">Follow our journey</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/karkydesignstudio" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://www.instagram.com/karkydesignstudio" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.youtube.com/@karkydesignstudio" target="_blank" rel="noopener" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <p class="footer-note">© 2026 Karky Designs Private Limited · All rights reserved</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('notifyForm');
+    const successMsg = document.getElementById('successMsg');
+
+    // Google Forms posts to a hidden iframe, so we just show success on submit
+    form.addEventListener('submit', () => {
+      setTimeout(() => {
+        form.style.display = 'none';
+        document.querySelector('.form-note').style.display = 'none';
+        successMsg.style.display = 'block';
+      }, 500);
+    });
+  </script>
+</body>
+</html>
